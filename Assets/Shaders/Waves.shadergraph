@@ -545,7 +545,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "CellDensity",
     "m_StageCapability": 3,
-    "m_Value": 0.7300000190734863,
+    "m_Value": 1.399999976158142,
     "m_DefaultValue": 5.0,
     "m_Labels": []
 }
@@ -944,7 +944,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "AngleOffset",
     "m_StageCapability": 3,
-    "m_Value": 1.0,
+    "m_Value": 1.7400000095367432,
     "m_DefaultValue": 2.0,
     "m_Labels": []
 }
