@@ -15,14 +15,13 @@ public class Bullet : MonoBehaviour
     
     {
     yield return new WaitForSeconds(3.0f);
-        DestroyImmediate(this.gameObject);
+        PoolManager.Instance.ReturnObjectToPool(this.gameObject);
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
-        Destroy(other.gameObject);  
+        PoolManager.Instance.ReturnObjectToPool(this.gameObject);  
     }
 
 
