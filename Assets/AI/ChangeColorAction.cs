@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class ChangeColorAction : AIAction
 {
-    public override void PerformAction() { }
+    
     public Color alertColor;
-    private Color originalColor;
+    private Color _originalColor;
+    private MeshRenderer _meshRenderer;
+
+    public override void PerformAction() { }
+    protected override void Initialization()
+    {
+        base.Initialization();
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
 
     public override void OnEnterState()
     {
         base.OnEnterState();
-        originalColor = GetComponentInChildren<MeshRenderer>().material.color;
-        GetComponentInChildren<MeshRenderer>().material.color = alertColor;
-
+        _originalColor = _meshRenderer.material.color;
+        _meshRenderer.material.color = alertColor;
     }
 
     public override void OnExitState()
     {
         base.OnExitState();
-        GetComponentInChildren<MeshRenderer>().material.color = originalColor;
-
+        _meshRenderer.material.color = _originalColor;
     }
+
 
 }
