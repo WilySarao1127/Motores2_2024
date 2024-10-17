@@ -18,4 +18,12 @@ public class FollowTargetAction : AIAction
 
     }
 
+    public override void OnEnterState()
+    {
+        base.OnEnterState();
+        GetComponentInChildren<Animator>().SetBool("isFollowing", true);
+    }
+
+
+
 }

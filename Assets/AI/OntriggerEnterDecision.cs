@@ -19,9 +19,9 @@ public class OntriggerEnterDecision : AIDecision
         }
     }
 
-    public override void OnExitState()
+    public override void OnEnterState()
     {
-        base.OnExitState();
+        base.OnEnterState();
         hasPlayerEnter = false;
     }
 }
