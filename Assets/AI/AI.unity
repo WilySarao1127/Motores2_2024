@@ -216,6 +216,9 @@ GameObject:
   - component: {fileID: 141468833}
   - component: {fileID: 141468832}
   - component: {fileID: 141468831}
+  - component: {fileID: 141468838}
+  - component: {fileID: 141468837}
+  - component: {fileID: 141468836}
   - component: {fileID: 141468830}
   - component: {fileID: 141468829}
   - component: {fileID: 141468834}
@@ -268,7 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   States:
   - StateName: Idle
-    Actions: []
+    Actions:
+    - {fileID: 141468836}
     Transitions:
     - Decision: {fileID: 141468830}
       TrueState: TargetFollow
@@ -278,14 +282,22 @@ MonoBehaviour:
     - {fileID: 141468829}
     Transitions:
     - Decision: {fileID: 141468834}
-      TrueState: Idle
+      TrueState: ReturnOrigin
       FalseState: 
     - Decision: {fileID: 141468835}
+      TrueState: ReturnOrigin
+      FalseState: 
+  - StateName: ReturnOrigin
+    Actions:
+    - {fileID: 141468837}
+    Transitions:
+    - Decision: {fileID: 141468838}
       TrueState: Idle
       FalseState: 
   BrainActive: 1
   TimeInThisState: 0
   Target: {fileID: 0}
+  StateName: 
 --- !u!135 &141468832
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -350,6 +362,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   maxTime: 5
+--- !u!114 &141468836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141468828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6953505d8004469ee85cd1d9e1246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+--- !u!114 &141468837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141468828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6117257e27c84443a5b578acd58d220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+  originPos: {x: 0, y: 0, z: 0}
+  speed: 1
+--- !u!114 &141468838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141468828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824c8738439d45d47b8c984dede7e186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+  originPos: {x: 0, y: 0, z: 0}
 --- !u!1 &365356662
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +576,7 @@ Transform:
   m_GameObject: {fileID: 937774105}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.088, y: 0.5, z: 3.87}
+  m_LocalPosition: {x: 0.088, y: 0.5, z: 5.486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -852,6 +906,7 @@ MonoBehaviour:
   BrainActive: 1
   TimeInThisState: 0
   Target: {fileID: 0}
+  StateName: 
 --- !u!114 &1801909007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,8 +1008,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f016bcd08724c24cbef362f2f79c5fd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966560541}
   m_SourcePrefab: {fileID: 100100000, guid: 3f016bcd08724c24cbef362f2f79c5fd, type: 3}
+--- !u!1 &1966560540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f016bcd08724c24cbef362f2f79c5fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1966560539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1966560541
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966560540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a20621576a328984facf8a6069f7e642, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

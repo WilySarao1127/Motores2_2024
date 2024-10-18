@@ -6,20 +6,17 @@ public class OnTriggerExitDecision : AIDecision
 {
     private bool PlayerExit;
 
-    public override void Initialization()
-    {
-        base.Initialization();
-    }
+
     public override bool Decide()
     {
-        return true;
+        return PlayerExit;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player" && _brain.Target != null)
         {
-            _brain.Target = other.transform;
+            _brain.Target = null;
             PlayerExit = true;
         }
     }

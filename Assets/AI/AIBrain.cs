@@ -18,6 +18,8 @@ public class AIBrain : MonoBehaviour
     /// the current target
     public Transform Target;
 
+    public string StateName;
+
     protected AIDecision[] _decisions;
 
     /// <summary>
@@ -40,6 +42,7 @@ public class AIBrain : MonoBehaviour
         if (States.Count > 0)
         {
             CurrentState = States[0];
+            StateName = CurrentState.StateName;
         }            
     }
 
@@ -68,6 +71,8 @@ public class AIBrain : MonoBehaviour
             OnExitState();
 
             CurrentState = FindState(newStateName);
+            StateName = CurrentState.StateName;
+
             if (CurrentState != null)
             {
                 CurrentState.EnterState();
